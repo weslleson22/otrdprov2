@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="This is a simple Online Viewer for SOR
+    Files (Standard OTDR Record - Telcordia SR-4731, issue 2 standard). This
+    data format is used to store OTDR fiber data."
+    />
+    <meta name="keywords" content="SOR, OTDR, SR-4731, viewer" />
+    <meta name="author" content="Marco Moosler" />
+    <title>OTDR PRO</title>
+    <style>
+      /* Centraliza e alarga o contêiner do gráfico */
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr; /* Cada elemento ocupa a largura total */
+        gap: 20px;
+        max-width: 80%; /* Limita a largura da página */
+        margin: 0 auto; /* Centraliza o contêiner na página */
+      }
+ 
+      /* Outros estilos opcionais para a página */
+      #header, #footer {
+        text-align: center;
+        margin: 10px 0;
+      }
+      h1, h3 {
+        margin: 0;
+        padding: 10px;
+      }
+      #flashMessage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: #f2f2f2;
+      }
+      .File-Select, .Props, .Events {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"><h1>OTDR PRO</h1></div>
+    <div id="flashMessage">
+      <div id="message"></div>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';"
+        >&times;</span
+      >
+    </div>
+    <div class="grid-container">
+      <div class="File-Select" id="File-Input">
+        <form action="#" onsubmit="return false;">
+          <input type="file" id="fileinput" accept=".sor,.SOR" />
+          <input type="button" id="btnLoad" value="Carregar" />
+        </form>
+      </div>
+      <div class="Chart" id="chartContainer">
+        <h3>Gráficos:</h3>
+      </div>
+      <div class="Props" id="result">
+        <h3>Propriedades</h3>
+      </div>
+      <div class="Events" id="event-sum"></div>
+    </div>
+    <div id="footer">
+      <a href="mailto:sw.suportedev@gmail.com">Sw Development Wesleson</a> 2024
+    </div>
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
